@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px;
+}
+
+body {
+  background-color: #0b31a5;
+}
+
+.clock {
+  position: relative;
+  max-width: 1920px;
+  margin: 0 auto;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: hidden;
+}
+
+.clock__btn {
+  margin: 0 10px;
+  padding: 10px 30px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  color: black;
+  outline: none;
+  border-style: none;
+  background-color: purple;
+  cursor: pointer;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.clock__btn:hover {
+  background-color: #4d004d;
+  color: #cccccc;
+}
+
+.clock__btn:active {
+  background-color: #1a001a;
+  -webkit-transition: 0s;
+  transition: 0s;
+}
+
+.clock__title {
+  height: 100px;
+  line-height: 100px;
+  font-size: 5rem;
+  color: white;
+  text-align: center;
+  background-color: #051545;
+}
+
+.clock__timer-wrap {
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.clock__timer {
+  font-family: monospace, sans-serif;
+  font-size: 10rem;
+  color: white;
+  letter-spacing: 5px;
+  text-shadow: 2px 4px 5px #000;
+}
+
+.clock__footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100px;
+  background-color: #051545;
+}
+
+.clock__options {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.clock__mode--content {
+  margin: 0 20px;
+  line-height: 100px;
+  font-size: 3rem;
+  color: white;
+}
+
+.clock__mode--span {
+  font-weight: bold;
+}
+
+.clock__mode--icon {
+  margin-right: 10px;
+  color: orange;
+  text-shadow: 0 0 3px #fff;
+}
+/*# sourceMappingURL=main.css.map */
