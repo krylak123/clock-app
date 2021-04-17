@@ -61,14 +61,22 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
+        align-content: center;
     }
 
     &__timer {
+        width: 100%;
+        text-align: center;
         font-family: monospace, sans-serif;
         font-size: 10rem;
         color: white;
         letter-spacing: 5px;
         text-shadow: 2px 4px 5px #000;
+    }
+
+    &__option-panel {
+        display: none;
     }
 
     &__footer {
