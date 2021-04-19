@@ -3,9 +3,7 @@ const btnsOptions = document.querySelectorAll('.clock__btn')
 const modeContent = document.querySelector('.clock__mode--span')
 const optionPanel = document.querySelector('.clock__option-panel')
 
-let currentMode = true;
 let indexInterval;
-// let time = 0;
 
 const currentTime = function () {
     const time = new Date();
@@ -81,6 +79,79 @@ const optionStopwatch = function () {
 
 }
 
+//OPTION TIMER
+const optionTimer = function () {
+    optionPanel.style.display = `block`;
+    modeContent.textContent = `timer`;
+
+    //CREATING PANEL FOR TIMER
+    for (let i = 0; i < 3; i++) {
+        const input = document.createElement('input')
+        input.classList.add('clock__form-timer')
+        input.setAttribute('type', 'number')
+        input.setAttribute('min', '0')
+        if (i === 0) {
+            input.setAttribute('placeholder', 'hours')
+            input.setAttribute('id', 'hours')
+        }
+        if (i === 1) {
+            input.setAttribute('placeholder', 'minutes')
+            input.setAttribute('id', 'minutes')
+            input.setAttribute('max', '60')
+        }
+        if (i === 2) {
+            input.setAttribute('placeholder', 'seconds')
+            input.setAttribute('id', 'seconds')
+            input.setAttribute('max', '60')
+        }
+        optionPanel.appendChild(input)
+    }
+    const btn = document.createElement('button')
+    btn.textContent = 'start';
+    btn.classList.add('clock__btn')
+    btn.setAttribute('id', 'start')
+    optionPanel.appendChild(btn)
+
+    //EVENT SERVICE
+    const start = document.getElementById('start')
+    const inputHours = document.getElementById('hours')
+    const inputMinutes = document.getElementById('minutes')
+    const inputSeconds = document.getElementById('seconds')
+
+    start.addEventListener('click', () => {
+        let hours = Number(inputHours.value);
+        if (hours === "") hours = 0;
+        let minutes = Number(inputMinutes.value);
+        if (minutes === "") minutes = 0;
+        let seconds = Number(inputSeconds.value);
+        if (seconds === "") seconds = 0;
+
+        if (seconds > 60) seconds = 60;
+        if (minutes > 60) minutes = 59;
+
+        optionPanel.textContent = '';
+
+        indexInterval = setInterval(() => {
+            seconds--;
+            if (seconds < 0) {
+                seconds = 59;
+                minutes--;
+                if (minutes < 0) {
+                    minutes = 59;
+                    hours--;
+                }
+            }
+
+            timer.textContent = `${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+
+            if (hours === 0 && minutes === 0 && seconds === 0) {
+                clearInterval(indexInterval)
+                return alert('time end!');
+            }
+        }, 1000)
+    })
+}
+
 //CONROL FUNCTION
 const controlFunction = function () {
     timer.textContent = ``;
@@ -94,6 +165,10 @@ const controlFunction = function () {
         case "btnStopwatch":
             clearInterval(indexInterval);
             optionStopwatch();
+            break;
+        case "btnTimer":
+            clearInterval(indexInterval);
+            optionTimer();
             break;
     }
 }
