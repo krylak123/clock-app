@@ -98,6 +98,25 @@ body {
   display: none;
 }
 
+.clock__form-timer {
+  width: 150px;
+  padding: 10px 5px;
+  font-size: 3rem;
+  text-align: center;
+  outline: none;
+  border: 1px solid black;
+  background-color: transparent;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.clock__form-timer:focus {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  color: white;
+  background-color: #000;
+}
+
 .clock__footer {
   display: -webkit-box;
   display: -ms-flexbox;
