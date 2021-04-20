@@ -126,10 +126,23 @@ const optionTimer = function () {
         let seconds = Number(inputSeconds.value);
         if (seconds === "") seconds = 0;
 
-        if (seconds > 60) seconds = 60;
-        if (minutes > 60) minutes = 59;
+        //CORRECTION OF ENTERED DATA BY THE USER
+        if (hours === 0 && minutes === 0 && seconds === 0) {
+            return alert('input your time!');
+        }
+
+        if (seconds >= 60) {
+            minutes += Math.floor(seconds / 60);
+            seconds = seconds % 60;
+        }
+
+        if (minutes >= 60) {
+            hours += Math.floor(minutes / 60);
+            minutes = minutes % 60;
+        }
 
         optionPanel.textContent = '';
+        timer.textContent = `${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
 
         indexInterval = setInterval(() => {
             seconds--;
@@ -152,7 +165,7 @@ const optionTimer = function () {
     })
 }
 
-//CONROL FUNCTION
+//CONTROL FUNCTION
 const controlFunction = function () {
     timer.textContent = ``;
     optionPanel.textContent = ``;
